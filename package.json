@@ -1,0 +1,24 @@
+{
+  "name": "INFO802-PROJET",
+  "version": "1.0.0",
+  "main": "server",
+  "repository": "https://github.com/MASTER-UNIV-SMB/INFO802-PROJET",
+  "author": "PHClement <c.delouvencourt@nocturne.app>",
+  "license": "MIT",
+  "scripts": {
+    "dev:api": "nodemon server.js",
+    "dev:client": "cd client && npm start",
+    "dev": "concurrently \"npm:dev:api\" \"npm:dev:client\""
+  },
+  "dependencies": {
+    "@turf/distance": "^6.5.0",
+    "@turf/nearest-point": "^6.5.0",
+    "@turf/turf": "^6.5.0",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "geolib": "^3.3.3",
+    "graphql": "^16.2.0",
+    "graphql-request": "^3.7.0"
+  }
+}

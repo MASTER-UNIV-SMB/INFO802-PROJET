@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;900&display=swap');
+
+html, body {
+  background: #f6f9ff !important;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.mapWrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.chakra-modal__overlay{
+  background: rgba( 0, 0, 0, 0.20) !important;
+  box-shadow: none;
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+}
+
+.car-item{
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.car-item:hover{
+  transform: scale(1.02);
+}
+
+.car-item h5{
+  font-weight: 800;
+}
+
+.car-item h3{
+  font-weight: 200;
+}
+
+.mapbox-directions-profile {
+  display: none;
+}
+
+<style type="text/css">
+                      ::-webkit-scrollbar {
+                        width: 2px;
+                        height: 2px;
+                      }
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.marker{
+  width: 25px;
+  height: 25px;
+  background: #84f377;
+  border-radius: 50px;
+}
