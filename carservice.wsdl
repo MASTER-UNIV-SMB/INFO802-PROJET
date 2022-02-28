@@ -1,0 +1,59 @@
+<!--
+Clément de Louvencourt
+-->
+<wsdl:definitions
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://Example.org"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+        xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+        targetNamespace="http://Example.org"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://Example.org" elementFormDefault="qualified" >
+            <xsd:element name="List">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="page" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ListResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="result" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="CarsService_List_InputMessage">
+        <wsdl:part name="parameters" element="tns:List" />
+    </wsdl:message>
+    <wsdl:message name="CarsService_List_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ListResponse" />
+    </wsdl:message>
+    <wsdl:portType name="CarsService">
+        <wsdl:operation name="List">
+            <wsdl:input wsaw:Action="http://Example.org/CarsService/List" message="tns:CarsService_List_InputMessage" />
+            <wsdl:output wsaw:Action="http://Example.org/CarsService/ListResponse" message="tns:CarsService_List_OutputMessage" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DefaultBinding_CarsService" type="tns:CarsService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="List">
+            <soap:operation soapAction="http://Example.org/CarsService/List" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CarsService">
+        <wsdl:port name="CarsService" binding="tns:DefaultBinding_CarsService">
+            <soap:address location="http://Example.org/CarsService" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

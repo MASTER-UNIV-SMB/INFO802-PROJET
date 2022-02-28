@@ -17,10 +17,12 @@ function CarsModalComponent(props) {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
-        CarAPI.listCars().then(cars => {
-            setCars(cars.carList);
+        CarAPI.listCarsSOAP().then(r => {
+            setCars(r.carList);
             setIsLoading(false);
-        });
+        }).catch(e => {
+            console.log(e);
+        })
     }, []);
 
     return (
@@ -46,6 +48,7 @@ function CarsModalComponent(props) {
                                     <Box borderRadius={10} className={"car-item"}
                                          border={"1px solid #e7e7e7"} display={"flex"}
                                          flexDirection={"column"} justifyContent={"center"}
+                                         key={"car-model-" + i}
                                         alignItems={"center"} onClick={() => {
                                         props.onChooseCar(c)
                                     }}>

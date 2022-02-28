@@ -1,7 +1,8 @@
 import MapComponent from "./components/MapComponent";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import CarsModalComponent from "./components/car/CarsModalComponent";
 import CarCardComponent from "./components/car/CarCardComponent";
+import CarAPI from "./api/CarAPI";
 
 function App() {
 
