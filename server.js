@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const CarsServiceSOAP = require("./services/CarsServiceSOAP");
+const path = require("path");
 const soap = require("express-soap").soap;
 
 const app = express()
@@ -11,10 +12,11 @@ const port = 8000
 app.use(cors());
 app.use(bodyParser.json({limit: '1024kb'}));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
-app.get('/', (req, res) => {
-    res.send("API")
-})
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 require('./routes')(app);
 
